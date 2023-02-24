@@ -52,7 +52,6 @@ for ds in dataSets:
     avgAccuracy = 0
     
     for i in range (10):
-        
         #fitting the decision tree to the data setting max_depth=3
         clf = tree.DecisionTreeClassifier(criterion = 'entropy', max_depth=3)
         clf = clf.fit(X, Y)
