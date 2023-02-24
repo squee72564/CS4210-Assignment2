@@ -24,7 +24,7 @@ with open('binary_points.csv', 'r') as csvfile:
 
 
 #loop your data to allow each instance to be your test set
-correctPred = 0
+incorrectPred = 0
 
 for i, point in enumerate(db):
     #add the training features to the 2D array X removing the instance that will be used for testing in this iteration. For instance, X = [[1, 3], [2, 1,], ...]]. Convert each feature value to
@@ -60,14 +60,8 @@ for i, point in enumerate(db):
     class_predicted = clf.predict([testSample])[0]
 
     #compare the prediction with the true label of the test instance to start calculating the error rate.
-    if class_predicted == testClass:
-        correctPred += 1
+    if class_predicted != testClass:
+        incorrectPred += 1
         
 #print the error rate
-print(f'Accuracy = {correctPred / len(db)}')
-
-
-
-
-
-
+print(f'Error Rate = {incorrectPred / len(db)}')
